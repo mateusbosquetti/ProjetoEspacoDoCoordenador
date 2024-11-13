@@ -8,6 +8,15 @@
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-screen-lg mx-auto mb-12">
+  <a href="{{ url_for('setorLista') }}"
+    class="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-lg shadow-lg p-5 hover:bg-blue-50 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 mb-3" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+    <span class="text-gray-700 font-medium">Setores</span>
+  </a>
+
   <a href="{{ url_for('chat') }}"
     class="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-lg shadow-lg p-5 hover:bg-blue-50 transition">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -17,15 +26,6 @@
     </svg>
 
     <span class="text-gray-700 font-medium">Chat</span>
-  </a>
-
-  <a href="{{ url_for('setorLista') }}"
-    class="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-lg shadow-lg p-5 hover:bg-blue-50 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 mb-3" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-    </svg>
-    <span class="text-gray-700 font-medium">Setores</span>
   </a>
 
   <a href="{{ url_for('suporte') }}"

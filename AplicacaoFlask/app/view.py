@@ -26,9 +26,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         
         if user is None:
-            error_message = 'Usuário não encontrado.'
+            error_message = 'Usuário/Senha incorretas.'
         elif not bcrypt.check_password_hash(user.senha, form.senha.data):
-            error_message = 'Senha incorreta.'
+            error_message = 'Usuário/Senha incorretas.'
         else:
             login_user(user, remember=True)
             return redirect(url_for('homepage'))
