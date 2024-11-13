@@ -249,6 +249,7 @@ def manage_aulas(professor_id):
 @app.route('/adicionar_aula/<int:professor_id>', methods=['GET', 'POST'])
 def adicionar_aula(professor_id):
     professor = Professor.query.get_or_404(professor_id)
+    error_message = None
     if request.method == 'POST':
         materia = request.form['materia']
         sala = request.form['sala'] 
@@ -264,7 +265,7 @@ def adicionar_aula(professor_id):
         ).first()
 
         if conflito:
-            flash('Conflito de horário detectado na sala especificada!', 'error')
+            error_message = 'Conflito de horário detectado na sala especificada!'
         else:
             nova_aula = Aula(
                 materia=materia,
@@ -276,10 +277,9 @@ def adicionar_aula(professor_id):
             )
             db.session.add(nova_aula)
             db.session.commit()
-            flash('Aula adicionada com sucesso!', 'success')
             return redirect(url_for('manage_aulas', professor_id=professor_id))
     
-    return render_template('aula/adicionar_aula.html', professor=professor)
+    return render_template('aula/adicionar_aula.html', professor=professor, error_message=error_message)
 
 
 
