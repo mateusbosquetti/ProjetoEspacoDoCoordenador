@@ -8,6 +8,7 @@ from io import BytesIO
 import pandas as pd
 import requests
 import cloudinary.uploader
+from datetime import datetime
 
 @app.route('/home', methods=['GET','POST'])
 def homepage():
@@ -205,6 +206,13 @@ def edit_setor(id):
 @app.route('/professor/<int:professor_id>/aulas', methods=['GET', 'POST'])
 def manage_aulas(professor_id):
     professor = Professor.query.get_or_404(professor_id)
+    ano = 2024
+    mes = 11
+    primeiro_dia = datetime(ano, mes, 1)
+    primeiro_dia_semana = primeiro_dia.weekday()  # Segunda = 0, ..., Domingo = 6
+    
+    dias_mes = [None] * primeiro_dia_semana + [dia for dia in range(1, 32)]
+    
     if request.method == 'POST':
         materia = request.form['materia']
         sala = request.form['sala']
@@ -236,7 +244,7 @@ def manage_aulas(professor_id):
             return redirect(url_for('manage_aulas', professor_id=professor_id))
     
     aulas = professor.aulas
-    return render_template('aula/manage_aulas.html', professor=professor, aulas=aulas)
+    return render_template('aula/manage_aulas.html', professor=professor, aulas=aulas,dias_mes=dias_mes, datetime=datetime)
 
 @app.route('/adicionar_aula/<int:professor_id>', methods=['GET', 'POST'])
 def adicionar_aula(professor_id):
