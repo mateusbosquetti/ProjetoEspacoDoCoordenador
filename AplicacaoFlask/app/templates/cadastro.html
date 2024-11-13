@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% include 'nave.html' %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-white">
+    <div class="w-full max-w-lg p-6 bg-white rounded-lg border border-gray-200 shadow-lg">
+        <h3 class="text-2xl font-semibold text-center text-blue-800 mb-6">Cadastrar Novo Usuário</h3>
+        {% if error_message %}
+            <div class="mb-4 text-red-600 bg-red-100 p-3 rounded">{{ error_message }}</div>
+        {% endif %}
+        <form action="" method="post" class="space-y-4">
+            {{ form.csrf_token() }}
+            
+            <div>
+                {{ form.nome.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.nome(class="form-input p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50") }}
+            </div>
+            <div>
+                {{ form.email.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.email(class="form-input p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50") }}
+            </div>
+
+            <div>
+                {{ form.senha.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.senha(class="form-input p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50") }}
+            </div>
+
+            <div>
+                {{ form.confirmacao_senha.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.confirmacao_senha(class="form-input p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50") }}
+            </div>
+
+            <div class="pt-4">
+                {{ form.btnSubmit(class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200") }}
+            </div>
+            <div class="pt-2">
+                <a href="{{ url_for('homepage') }}" class="block text-center bg-gray-500 text-white font-bold py-2 px-4 rounded hover:bg-gray-600 transition duration-200">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

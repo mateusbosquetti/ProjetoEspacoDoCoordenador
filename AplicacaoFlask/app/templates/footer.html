@@ -1,0 +1,47 @@
+
+<footer class="bg-blue-700 text-white py-8 mt-16">
+    <div class="max-w-screen-lg mx-auto px-4 md:flex md:justify-between">
+
+      <div class="mb-6 md:mb-0">
+        <img src="{{ url_for('static', filename='img/Espaço_do_Coordenador.png') }}" alt="Logo Espaço do Coordenador"
+          class="h-12 w-auto mb-2">
+        <p class="text-gray-400">Gerenciamento de Professores Nunca foi tão Fácil</p>
+      </div>
+  
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-end">
+        <div>
+          <a href="{{ url_for('setorLista') }}" class="block hover:text-gray-300">SETORES</a>
+          <a href="{{ url_for('chat') }}" class="block hover:text-gray-300">CHAT</a>
+          {% if current_user.adm == 1 %}
+          <a href="{{ url_for('download_excel') }}" class="block hover:text-gray-300">RELATÓRIO</a>
+          {% else %}
+          <a href="{{ url_for('download_excel_professor') }}" class="block hover:text-gray-300">RELATÓRIO</a>
+          {% endif %}
+        </div>
+        <div>
+          <a href="{{ url_for('suporte') }}" class="block hover:text-gray-300">SUPORTE</a>
+          <a href="{{ url_for('sobre') }}" class="block hover:text-gray-300">SOBRE NÓS</a>
+          <a href="{{ url_for('edit_perfil', id=current_user.id) }}" class="block hover:text-gray-300">PERFIL</a>
+        </div>
+        <div>
+          <a href="https://sc.senai.br/" class="block hover:text-gray-300">SENAI</a>
+          <a href="https://sesisc.org.br/" class="block hover:text-gray-300">SESI</a>
+          <a href="https://www.escolasesisc.com.br/" class="block hover:text-gray-300">ESCOLA SESI</a>
+          <a href="{{ url_for('landing_page') }}" class="block hover:text-gray-300">INICIO</a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="border-t border-gray-400 my-6"></div>
+  
+    <div class="text-center">
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="text-gray-400">&copy; Copyright. Todos os Direitos Reservados.</p>
+    </div>
+  </footer>
+  
