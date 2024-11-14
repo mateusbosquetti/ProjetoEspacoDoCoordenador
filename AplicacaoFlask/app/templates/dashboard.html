@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
-{% include 'nave.html' %} 
 {% block content %}
+{% include 'nave.html' %} 
 
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-bold mb-8 text-gray-800">Dashboard</h1>
@@ -35,17 +35,6 @@
                 {% for suporte in recentes_suportes %}
                     <li class="bg-white p-4 rounded-lg shadow-md">
                         <strong class="text-gray-800">{{ suporte.nome }}</strong> - <span class="text-gray-600">{{ suporte.mensagem }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div>
-            <h3 class="text-xl font-semibold mb-4 text-gray-700">Últimos Chats</h3>
-            <ul class="space-y-2">
-                {% for chat in recentes_chats %}
-                    <li class="bg-white p-4 rounded-lg shadow-md">
-                        <strong class="text-gray-800">Chat {{ chat.id }}</strong> - <span class="text-gray-600">{{ chat.name or 'Sem Nome' }}</span>
                     </li>
                 {% endfor %}
             </ul>
