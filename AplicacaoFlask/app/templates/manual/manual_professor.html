@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nave.html' %}
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">Guia do Professor</h1>
+
+    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300 text-center">
+        Bem-vindo ao guia do professor! Aqui você encontrará todas as instruções e funcionalidades disponíveis no sistema para facilitar o seu uso e ajudar a maximizar a experiência na plataforma.
+    </p>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Funcionalidades Gerais</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Como professor, você tem acesso a várias áreas importantes do sistema para ajudar na gestão das suas atividades. Estas incluem:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Acesso aos setores, chat, suporte, sobre nós, anotações e relatório de aulas.</li>
+            <li>Personalização do perfil, incluindo a troca da foto e a ativação do modo escuro para uma experiência visual mais confortável.</li>
+            <li>Opção para sair da conta (logout) com segurança a qualquer momento.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Quadro de Setores e Professores</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Navegue pelos setores e conheça os professores que fazem parte de cada área. Além disso, você pode:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Visualizar todos os setores disponíveis no sistema.</li>
+            <li>Consultar a lista de professores que fazem parte de um setor específico.</li>
+            <li>Acessar o quadro de horários detalhado de cada professor.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Permissões no Quadro de Horários</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Você possui controle sobre suas aulas e pode gerenciar o seu quadro de horários. As permissões incluem:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Visualizar as aulas de qualquer professor.</li>
+            <li>Adicionar, editar e excluir suas próprias aulas.</li>
+            <li>Prevenir conflitos de horários ao cadastrar uma nova aula, garantindo uma agenda organizada.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Suporte</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Precisa de ajuda? A seção de suporte oferece recursos para solucionar suas dúvidas:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Envio de mensagens diretamente para a equipe de suporte, com confirmação de envio.</li>
+            <li>Acesso à seção FAQ, onde você encontra respostas para as perguntas mais frequentes.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Chat</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            A plataforma conta com um chat em tempo real, permitindo interação instantânea entre os usuários:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Envio de mensagens em tempo real para outros usuários.</li>
+            <li>Visualização da lista de usuários atualmente conectados no chat.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Anotações</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Mantenha suas ideias organizadas com o recurso de anotações:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Criar novas anotações pessoais para registrar suas ideias.</li>
+            <li>Editar e atualizar suas anotações conforme necessário.</li>
+            <li>Excluir anotações que não são mais relevantes.</li>
+        </ul>
+    </section>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

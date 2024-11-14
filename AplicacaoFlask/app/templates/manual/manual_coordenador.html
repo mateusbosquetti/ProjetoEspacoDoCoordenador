@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nave.html' %}
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">Guia do Coordenador</h1>
+
+    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300 text-center">
+        Este guia foi criado para ajudar os coordenadores a utilizar todas as funcionalidades disponíveis na plataforma, facilitando a gestão de setores, professores e usuários. Explore cada seção abaixo para entender como aproveitar ao máximo suas permissões.
+    </p>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Funcionalidades Gerais</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            Como coordenador, você tem acesso a uma variedade de recursos para gerenciar a plataforma de maneira eficiente:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Acesso aos setores, chat, suporte, sobre nós, anotações, relatório geral e dashboard.</li>
+            <li>Personalização do perfil, incluindo troca de foto e ativação do modo escuro.</li>
+            <li>Opção de deslogar do sistema com segurança a qualquer momento.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Gerenciamento de Setores e Professores</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            O coordenador tem controle total sobre a criação e manutenção de setores e professores. As funcionalidades incluem:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Adicionar novos setores e organizar os professores de acordo com cada área.</li>
+            <li>Editar as informações de setores e atualizar dados de professores sempre que necessário.</li>
+            <li>Remover setores e professores que não são mais necessários na plataforma.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Permissões no Quadro de Horários</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            O coordenador tem controle sobre o agendamento de todas as aulas e pode gerenciar o quadro de horários para evitar conflitos:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Visualizar, adicionar, editar e excluir aulas de qualquer professor.</li>
+            <li>Gerenciar conflitos de horário ao cadastrar novas aulas, garantindo que não ocorram sobreposições.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Suporte</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            A seção de suporte permite ao coordenador visualizar e responder às solicitações enviadas pelos usuários:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Ver todas as mensagens enviadas ao suporte e gerenciá-las conforme necessário.</li>
+            <li>Acessar a seção FAQ para consultar respostas a perguntas frequentes.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Chat</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            O chat em tempo real permite ao coordenador interagir com todos os usuários da plataforma:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Participar do chat em tempo real e enviar mensagens para outros usuários.</li>
+            <li>Ver a lista de usuários atualmente conectados no chat.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Listagem e Gerenciamento de Usuários</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            O coordenador tem permissão para visualizar e gerenciar todos os usuários cadastrados na plataforma:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Listar todos os usuários registrados, com detalhes sobre cada um.</li>
+            <li>Criar novos usuários, editar informações existentes e excluir usuários quando necessário.</li>
+        </ul>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold mb-4 text-blue-700 dark:text-blue-300">Dashboard</h2>
+        <p class="text-gray-700 dark:text-gray-400 mb-4">
+            O dashboard oferece uma visão geral das informações e métricas importantes da plataforma:
+        </p>
+        <ul class="list-disc ml-8 space-y-2 text-gray-700 dark:text-gray-400">
+            <li>Visualizar o total de setores, professores, aulas, anotações e suportes registrados.</li>
+            <li>Acompanhar os últimos 5 suportes registrados para rápida análise e resolução.</li>
+        </ul>
+    </section>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

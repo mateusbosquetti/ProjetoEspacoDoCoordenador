@@ -10,7 +10,6 @@ def load_user(user_id):
 DEFAULT_PROFILE_PICTURE_URL = "https://res.cloudinary.com/dhfyfwuaf/image/upload/v1723118707/z7xfqnj8zlu7ztgfxv5e.jpg"
 
 class User(db.Model, UserMixin):
-    # Campos existentes
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String, nullable=True)
     email = db.Column(db.String, nullable=True)

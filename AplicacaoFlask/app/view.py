@@ -561,3 +561,12 @@ def deletar_anotacao(anotacao_id):
     
     flash('Anotação deletada com sucesso!', 'success')
     return redirect(url_for('visualizar_anotacoes'))
+
+@app.route('/manual_professor')
+def manual_professor():
+    return render_template('manual/manual_professor.html')
+
+# Rota para o manual do coordenador
+@app.route('/manual_coordenador')
+def manual_coordenador():
+    return render_template('manual/manual_coordenador.html')
