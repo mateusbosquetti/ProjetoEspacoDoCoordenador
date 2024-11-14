@@ -18,26 +18,9 @@
             <h5 class="text-lg font-semibold">Aulas</h5>
             <p class="text-2xl">{{ total_aulas }}</p>
         </div>
-        <div class="bg-yellow-600 text-white p-4 rounded-lg shadow-md">
+        <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
             <h5 class="text-lg font-semibold">Anotações</h5>
             <p class="text-2xl">{{ total_anotacoes }}</p>
-        </div>
-        <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
-            <h5 class="text-lg font-semibold">Suportes</h5>
-            <p class="text-2xl">{{ total_suportes }}</p>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <h3 class="text-xl font-semibold mb-4 text-gray-700">Últimos Suportes</h3>
-            <ul class="space-y-2">
-                {% for suporte in recentes_suportes %}
-                    <li class="bg-white p-4 rounded-lg shadow-md">
-                        <strong class="text-gray-800">{{ suporte.nome }}</strong> - <span class="text-gray-600">{{ suporte.mensagem }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
         </div>
     </div>
 </div>

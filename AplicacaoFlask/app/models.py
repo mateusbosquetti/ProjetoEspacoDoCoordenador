@@ -18,10 +18,8 @@ class User(db.Model, UserMixin):
     adm = db.Column(db.Boolean, nullable=True)
     profile_picture = db.Column(db.String, nullable=True, default=DEFAULT_PROFILE_PICTURE_URL)
 
-    # Relação com mensagens
     messages = db.relationship('Message', back_populates='user', cascade='all, delete-orphan')
 
-    # Relação com anotações
     anotacoes = db.relationship('Anotacao', back_populates='user', cascade='all, delete-orphan')
 
 class Anotacao(db.Model):
@@ -31,7 +29,6 @@ class Anotacao(db.Model):
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
-    # Relacionamento com a classe User
     user = db.relationship('User', back_populates='anotacoes')
 
 

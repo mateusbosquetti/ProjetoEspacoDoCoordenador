@@ -95,6 +95,7 @@
 
       <span class="text-gray-700 font-medium">Dashboard</span>
     </a>
+
     {% else %}
     <a href="{{ url_for('download_excel_professor') }}"
       class="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-lg shadow-lg p-5 hover:bg-blue-50 transition">
@@ -108,7 +109,7 @@
     {% endif %}
   </div>
 
-{% include 'footer.html' %}
+  {% include 'footer.html' %}
 </body>
 
 {% endblock %}
