@@ -401,6 +401,7 @@ def dashboard():
     total_setores = Setor.query.count()
     total_professores = Professor.query.count()
     total_aulas = Aula.query.count()
+    total_anotacoes = Anotacao.query.count()
     total_suportes = Suporte.query.count()
     
     recentes_suportes = Suporte.query.order_by(Suporte.id.desc()).limit(5).all()
@@ -409,6 +410,7 @@ def dashboard():
                            total_setores=total_setores, 
                            total_professores=total_professores,
                            total_aulas=total_aulas, 
+                           total_anotacoes=total_anotacoes, 
                            total_suportes=total_suportes,
                            recentes_suportes=recentes_suportes)
 

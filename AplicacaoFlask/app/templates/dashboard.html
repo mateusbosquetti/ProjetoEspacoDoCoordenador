@@ -1,60 +1,51 @@
-{% extends 'base.html' %} {% include 'nave.html' %} {% block content %}
-<div class="container h-3/5">
-    <h1 class="my-8">Dashboard</h1>
+{% extends 'base.html' %} 
+{% include 'nave.html' %} 
+{% block content %}
 
-    <div class="row mb-4">
-        <div class="col-lg-3 col-md-6">
-            <div class="card text-white bg-primary mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Setores</h5>
-                    <p class="card-text">{{ total_setores }}</p>
-                </div>
-            </div>
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-8 text-gray-800">Dashboard</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-blue-500 text-white p-4 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold">Setores</h5>
+            <p class="text-2xl">{{ total_setores }}</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card text-white bg-success mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Professores</h5>
-                    <p class="card-text">{{ total_professores }}</p>
-                </div>
-            </div>
+        <div class="bg-green-500 text-white p-4 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold">Professores</h5>
+            <p class="text-2xl">{{ total_professores }}</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card text-white bg-warning mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Aulas</h5>
-                    <p class="card-text">{{ total_aulas }}</p>
-                </div>
-            </div>
+        <div class="bg-yellow-500 text-white p-4 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold">Aulas</h5>
+            <p class="text-2xl">{{ total_aulas }}</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card text-white bg-danger mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Suportes</h5>
-                    <p class="card-text">{{ total_suportes }}</p>
-                </div>
-            </div>
+        <div class="bg-yellow-600 text-white p-4 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold">Anotações</h5>
+            <p class="text-2xl">{{ total_anotacoes }}</p>
+        </div>
+        <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold">Suportes</h5>
+            <p class="text-2xl">{{ total_suportes }}</p>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Últimos Suportes</h3>
-            <ul class="list-group">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-700">Últimos Suportes</h3>
+            <ul class="space-y-2">
                 {% for suporte in recentes_suportes %}
-                    <li class="list-group-item">
-                        <strong>{{ suporte.nome }}</strong> - {{ suporte.mensagem }}
+                    <li class="bg-white p-4 rounded-lg shadow-md">
+                        <strong class="text-gray-800">{{ suporte.nome }}</strong> - <span class="text-gray-600">{{ suporte.mensagem }}</span>
                     </li>
                 {% endfor %}
             </ul>
         </div>
 
-        <div class="col-md-6">
-            <h3>Últimos Chats</h3>
-            <ul class="list-group">
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-700">Últimos Chats</h3>
+            <ul class="space-y-2">
                 {% for chat in recentes_chats %}
-                    <li class="list-group-item">
-                        <strong>Chat {{ chat.id }}</strong> - {{ chat.name or 'Sem Nome' }}
+                    <li class="bg-white p-4 rounded-lg shadow-md">
+                        <strong class="text-gray-800">Chat {{ chat.id }}</strong> - <span class="text-gray-600">{{ chat.name or 'Sem Nome' }}</span>
                     </li>
                 {% endfor %}
             </ul>
@@ -62,9 +53,5 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% include 'footer.html' %}
-
 {% endblock %}
