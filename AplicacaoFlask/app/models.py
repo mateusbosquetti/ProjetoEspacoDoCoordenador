@@ -10,14 +10,30 @@ def load_user(user_id):
 DEFAULT_PROFILE_PICTURE_URL = "https://res.cloudinary.com/dhfyfwuaf/image/upload/v1723118707/z7xfqnj8zlu7ztgfxv5e.jpg"
 
 class User(db.Model, UserMixin):
+    # Campos existentes
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String, nullable=True)
     email = db.Column(db.String, nullable=True)
     senha = db.Column(db.String, nullable=True)
     adm = db.Column(db.Boolean, nullable=True)
     profile_picture = db.Column(db.String, nullable=True, default=DEFAULT_PROFILE_PICTURE_URL)
-    
+
+    # Relação com mensagens
     messages = db.relationship('Message', back_populates='user', cascade='all, delete-orphan')
+
+    # Relação com anotações
+    anotacoes = db.relationship('Anotacao', back_populates='user', cascade='all, delete-orphan')
+
+class Anotacao(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(100), nullable=False)
+    conteudo = db.Column(db.Text, nullable=False)
+    data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
+    # Relacionamento com a classe User
+    user = db.relationship('User', back_populates='anotacoes')
+
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)

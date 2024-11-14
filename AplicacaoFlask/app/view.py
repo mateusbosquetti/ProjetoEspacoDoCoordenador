@@ -1,7 +1,7 @@
 from app import app, db, bcrypt
 from flask import jsonify, render_template, url_for, request, redirect, flash, send_file
 from app.forms import SetorForm, UserForm, LoginForm, ProfessorForm
-from app.models import Setor, User, Suporte, Professor, Aula, DEFAULT_PROFILE_PICTURE_URL
+from app.models import Setor, User, Suporte, Professor, Aula, DEFAULT_PROFILE_PICTURE_URL, Anotacao
 from flask_login import login_user, logout_user, current_user
 from datetime import time
 from io import BytesIO
@@ -507,3 +507,58 @@ def handle_send_message(data):
 @app.route('/sobre', methods=['GET'])
 def sobre():
     return render_template('sobre_nos.html')
+
+
+@app.route('/anotacoes')
+def visualizar_anotacoes():
+    anotacoes = current_user.anotacoes
+    return render_template('anotacoes/visualizar.html', anotacoes=anotacoes)
+
+@app.route('/anotacoes/criar', methods=['GET', 'POST'])
+def criar_anotacao():
+    if request.method == 'POST':
+        titulo = request.form['titulo']
+        conteudo = request.form['conteudo']
+        
+        nova_anotacao = Anotacao(titulo=titulo, conteudo=conteudo, user_id=current_user.id)
+        db.session.add(nova_anotacao)
+        db.session.commit()
+        
+        flash('Anotação criada com sucesso!', 'success')
+        return redirect(url_for('visualizar_anotacoes'))
+    
+    return render_template('anotacoes/criar.html')
+
+@app.route('/anotacoes/editar/<int:anotacao_id>', methods=['GET', 'POST'])
+def editar_anotacao(anotacao_id):
+    anotacao = Anotacao.query.get_or_404(anotacao_id)
+    
+    # Verificar se a anotação pertence ao usuário logado
+    if anotacao.user_id != current_user.id:
+        flash('Você não tem permissão para editar esta anotação.', 'error')
+        return redirect(url_for('visualizar_anotacoes'))
+    
+    if request.method == 'POST':
+        anotacao.titulo = request.form['titulo']
+        anotacao.conteudo = request.form['conteudo']
+        db.session.commit()
+        
+        flash('Anotação editada com sucesso!', 'success')
+        return redirect(url_for('visualizar_anotacoes'))
+    
+    return render_template('anotacoes/editar.html', anotacao=anotacao)
+
+@app.route('/anotacoes/deletar/<int:anotacao_id>', methods=['GET'])
+def deletar_anotacao(anotacao_id):
+    anotacao = Anotacao.query.get_or_404(anotacao_id)
+    
+    # Verificar se a anotação pertence ao usuário logado
+    if anotacao.user_id != current_user.id:
+        flash('Você não tem permissão para deletar esta anotação.', 'error')
+        return redirect(url_for('visualizar_anotacoes'))
+    
+    db.session.delete(anotacao)
+    db.session.commit()
+    
+    flash('Anotação deletada com sucesso!', 'success')
+    return redirect(url_for('visualizar_anotacoes'))
