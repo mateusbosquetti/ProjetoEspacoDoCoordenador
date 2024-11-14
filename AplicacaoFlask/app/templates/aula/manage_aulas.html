@@ -27,7 +27,7 @@
             <p>Dia {{ dia }}</p>
             {% for aula in aulas %}
             {% if aula.dia.split('-')[2] | int == dia %}
-            <div class="bg-blue-100 p-2">
+            <div class="bg-blue-100 p-2 my-2">
                 <p>{{ aula.materia }}</p>
                 <p>{{ aula.professor.nome }}</p>
                 <p>{{ aula.sala }}</p>
