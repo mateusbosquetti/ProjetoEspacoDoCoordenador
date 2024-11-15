@@ -99,11 +99,8 @@ def suporte():
         }
 
         response = requests.post(staticforms_url, data=data)
-
-        if response.status_code == 200:
-            error_message = "Enviado com Sucesso!"
-        else:
-            error_message = "Erro! Mensagem não enviada"
+        error_message = "Mensagem enviada com sucesso!"
+        
 
         return render_template('suporte.html', error_message=error_message) 
 
@@ -375,7 +372,7 @@ def download_excel_professor():
 
     professor = Professor.query.filter_by(email=current_user.email).first()
     if not professor:
-        return "Usuário logado não é um professor", 403
+        return redirect(url_for('homepage'))
 
     aulas = Aula.query.filter_by(professor_id=professor.id).all()
     

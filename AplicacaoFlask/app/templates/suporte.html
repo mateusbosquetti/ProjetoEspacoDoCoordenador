@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
-    
+
 {% block content %}
-{% include 'nave.html' %} 
+{% include 'nave.html' %}
+
 <body class="bg-gray-100 text-gray-800">
 
     <section class="flex items-center justify-center py-10  text-black">
         <div class="text-center">
             <h1 class="text-3xl font-semibold">Centro de Suporte</h1>
-            <p class="mt-2">Estamos aqui para ajudar! Consulte as perguntas frequentes ou envie uma mensagem para nossa equipe.</p>
+            <p class="mt-2">Estamos aqui para ajudar! Consulte as perguntas frequentes ou envie uma mensagem para nossa
+                equipe.</p>
         </div>
     </section>
 
@@ -18,48 +20,48 @@
             <div>
                 <button @click="openQuestion === 1 ? openQuestion = null : openQuestion = 1"
                     class="flex justify-between w-full text-left text-lg font-medium text-blue-600 hover:text-blue-800">
-                    Como redefino minha senha?
+                    Como funcionam as permissões para visualizar e editar aulas?
                     <span x-show="openQuestion === 1" class="transform rotate-180">&#9650;</span>
                     <span x-show="openQuestion !== 1">&#9660;</span>
                 </button>
                 <p x-show="openQuestion === 1" class="mt-2 text-gray-600">
-                    Para redefinir sua senha, entre em contato com seu superior que o cadastrou no sistema, ele tomará as devidas providências.
+                    Professores podem adicionar, editar ou excluir suas próprias aulas, enquanto outros usuários apenas visualizam as aulas. Administradores têm as mesmas permissões dos professores para gerenciamento de aulas.
                 </p>
             </div>
 
             <div>
                 <button @click="openQuestion === 2 ? openQuestion = null : openQuestion = 2"
                     class="flex justify-between w-full text-left text-lg font-medium text-blue-600 hover:text-blue-800">
-                    Como posso atualizar meus dados de perfil?
+                    Como o sistema lida com conflitos de horário ao agendar uma aula?
                     <span x-show="openQuestion === 2" class="transform rotate-180">&#9650;</span>
                     <span x-show="openQuestion !== 2">&#9660;</span>
                 </button>
                 <p x-show="openQuestion === 2" class="mt-2 text-gray-600">
-                    Acesse sua conta clicando no seu icone de perfil no canto superior direito, lá você poderá alterar apenas sua foto de perfil. Caso queira alterar algum dado pessoal, contate seu superior que o cadastrou no sistema.
+                    Ao tentar criar uma nova aula, o sistema verifica se há conflitos com outras aulas no mesmo dia e sala. Caso detecte um conflito, um aviso será exibido, e a aula não será criada.
                 </p>
             </div>
 
             <div>
                 <button @click="openQuestion === 3 ? openQuestion = null : openQuestion = 3"
                     class="flex justify-between w-full text-left text-lg font-medium text-blue-600 hover:text-blue-800">
-                    Como entrar em contato com o suporte?
+                    Quais dados posso modificar no meu perfil?
                     <span x-show="openQuestion === 3" class="transform rotate-180">&#9650;</span>
                     <span x-show="openQuestion !== 3">&#9660;</span>
                 </button>
                 <p x-show="openQuestion === 3" class="mt-2 text-gray-600">
-                    Você pode enviar uma mensagem através do formulário abaixo ou enviar um e-mail diretamente para espacodocoordenador@gmail.com.
+                    Todos os usuários podem atualizar sua foto de perfil e alternar entre o modo claro e escuro. Para sair, use a opção "Logout" no menu de perfil.
                 </p>
             </div>
 
             <div>
                 <button @click="openQuestion === 4 ? openQuestion = null : openQuestion = 4"
                     class="flex justify-between w-full text-left text-lg font-medium text-blue-600 hover:text-blue-800">
-                    Coordenadores tem quais permissões em relações ao professor?
+                    Como funciona o chat do sistema?
                     <span x-show="openQuestion === 4" class="transform rotate-180">&#9650;</span>
                     <span x-show="openQuestion !== 4">&#9660;</span>
                 </button>
                 <p x-show="openQuestion === 4" class="mt-2 text-gray-600">
-                    Coordenadores assim como qualquer outro professor, podem ver todas as suas aulas cadastradas. Além disso podem também cadastrar aulas, editar e excluir. Permissão Completa⚠️
+                    O chat permite a comunicação em tempo real entre todos os usuários. Sua própria mensagem será destacada, enquanto as mensagens dos outros usuários terão uma leve sombra para facilitar a leitura. Uma lista de participantes também é exibida.
                 </p>
             </div>
         </div>
