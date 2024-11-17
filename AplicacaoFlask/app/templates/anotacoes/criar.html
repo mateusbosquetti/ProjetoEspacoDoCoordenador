@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'nave.html' %}
+
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-semibold text-blue-700 mb-4">Criar Nova Anotação</h1>
     <form action="{{ url_for('criar_anotacao') }}" method="POST" class="space-y-4">

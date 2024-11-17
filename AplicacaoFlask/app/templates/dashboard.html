@@ -1,29 +1,29 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
-{% include 'nave.html' %} 
+{% include 'nave.html' %}
+<section class="h-screen">
+    <div class="container p-6">
+        <h1 class="text-3xl font-bold mb-8 text-gray-800">Dashboard</h1>
 
-<div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800">Dashboard</h1>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-blue-500 text-white p-4 rounded-lg shadow-md">
-            <h5 class="text-lg font-semibold">Setores</h5>
-            <p class="text-2xl">{{ total_setores }}</p>
-        </div>
-        <div class="bg-green-500 text-white p-4 rounded-lg shadow-md">
-            <h5 class="text-lg font-semibold">Professores</h5>
-            <p class="text-2xl">{{ total_professores }}</p>
-        </div>
-        <div class="bg-yellow-500 text-white p-4 rounded-lg shadow-md">
-            <h5 class="text-lg font-semibold">Aulas</h5>
-            <p class="text-2xl">{{ total_aulas }}</p>
-        </div>
-        <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
-            <h5 class="text-lg font-semibold">Anotações</h5>
-            <p class="text-2xl">{{ total_anotacoes }}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-blue-500 text-white p-4 rounded-lg shadow-md">
+                <h5 class="text-lg font-semibold">Setores</h5>
+                <p class="text-2xl">{{ total_setores }}</p>
+            </div>
+            <div class="bg-green-500 text-white p-4 rounded-lg shadow-md">
+                <h5 class="text-lg font-semibold">Professores</h5>
+                <p class="text-2xl">{{ total_professores }}</p>
+            </div>
+            <div class="bg-yellow-500 text-white p-4 rounded-lg shadow-md">
+                <h5 class="text-lg font-semibold">Aulas</h5>
+                <p class="text-2xl">{{ total_aulas }}</p>
+            </div>
+            <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
+                <h5 class="text-lg font-semibold">Anotações</h5>
+                <p class="text-2xl">{{ total_anotacoes }}</p>
+            </div>
         </div>
     </div>
-</div>
-
+</section>
 {% include 'footer.html' %}
 {% endblock %}
